@@ -21,10 +21,10 @@ TIME_TO_SLEEP = 180
 #python manage.py send_mail
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        restaurants = Restaurant.objects.filter(sent=False, email__contains='@')
+        restaurants = Restaurant.objects.filter(sent=False, email__contains='@')[0:10000]
         print 'count of not sent emails are {0}'.format(restaurants.count())
         random_count = len(SUBJECTS) - 1
-        for restaurant in restaurants.order_by('email'):
+        for restaurant in restaurants:
             email = restaurant.email
             if email not in EMAILS_NOT_FOR_COMMON_SENDING:
                 rand = randint(0, random_count)

@@ -17,7 +17,7 @@ env.repo_path = '%(path)s/repository' % env
 
 
 def deploy():
-    sudo('rm -rf Email')  # MUST REMOVE IT
+    sudo('rm -rf commands')  # MUST REMOVE IT
     sudo('apt-get install git')
     setup_directories()
     setup_virtualenv()
