@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'tripadvisor',
-    'vk',
     'selen',
     'utils',
     'sendmail',

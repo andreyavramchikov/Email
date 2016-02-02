@@ -17,14 +17,14 @@ env.repo_path = '%(path)s/repository' % env
 
 
 def deploy():
-    sudo('rm -rf commands')  # MUST REMOVE IT
+    sudo('rm -rf Email')  # MUST REMOVE IT
     sudo('apt-get install git')
     setup_directories()
     setup_virtualenv()
     clone_repo()
-    install_requirements()
+    # install_requirements()
 
-    run('source %(env_path)s/bin/activate; %(env_path)s/bin/python %(repo_path)s/manage.py migrate' % env)
+    # run('source %(env_path)s/bin/activate; %(env_path)s/bin/python %(repo_path)s/manage.py migrate' % env)
 
 
 def install_requirements():
@@ -38,7 +38,7 @@ def clone_repo():
     """
     Do initial clone of the git repository.
     """
-    run('git clone https://github.com/andreyavramchikov/Email.git')
+    run('git clone https://github.com/andreyavramchikov/%(project_name)s.git %(repo_path)s' % env)
 
 
 def setup_directories():
